@@ -19,7 +19,7 @@ public class GuestController {
     }
 
     @GetMapping
-    public List<Guest> getAll(@RequestParam("e") String eventId) {
+    public List<Guest> getAll(@Nullable @RequestParam("e") String eventId) {
         if (eventId != null) {
             return GuestRepository.getAllByEventId(eventId);
         }

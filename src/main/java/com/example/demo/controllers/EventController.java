@@ -24,7 +24,10 @@ public class EventController {
     @GetMapping
     public List<Event> getAll() {
 
-        return EventRepository.getAll();
+        return EventRepository.getAll().stream().peek(e -> {
+            e.setGuests(List.of());
+            e.setTimeBlocks(List.of());
+        }).toList();
     }
 
     @GetMapping("/{id}")
