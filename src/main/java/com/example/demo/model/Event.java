@@ -1,47 +1,49 @@
-package com.example.demo.models;
+package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.*;
+import jakarta.persistence.*;
 
-import java.lang.reflect.Type;
 import java.util.Arrays;
-import java.util.List;
 
 @JsonInclude(Include.NON_NULL)
+@Entity
+@Table(name = "event")
 public class Event {
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="id")
+    private Long id;
+    @Column(name ="event_name")
     private String name;
+    @Column(name ="event_description")
     private String description;
+    @Column(name ="event_address")
     private String address;
+    @Column(name ="event_city")
     private String city;
+    @Column(name ="event_type")
     private String type;
+    @Column(name ="event_date")
     private String date;
+    @Column(name ="event_start_time")
     private String startTime;
+    @Column(name ="event_end_time")
     private String endTime;
 
-    private List<TimeBlock> timeBlocks;
-    private List<Guest> guests;
+/*    private List<TimeBlock> timeBlocks;
+    private List<Guest> guests;*/
 
     public Event() {
     }
 
-    public Event(String id, String name, String description, String address, String city, String type, String date, String startTime, String endTime) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.address = address;
-        this.city = city;
-        this.type = type;
-        this.date = date;
-        this.startTime = startTime;
-        this.endTime = endTime;
-    }
 
-    public String getId() {
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -109,7 +111,7 @@ public class Event {
         this.endTime = endTime;
     }
 
-    public List<TimeBlock> getTimeBlocks() {
+    /*public List<TimeBlock> getTimeBlocks() {
         return timeBlocks;
     }
 
@@ -124,7 +126,7 @@ public class Event {
 
     public void setGuests(List<Guest> guests) {
         this.guests = guests;
-    }
+    }*/
 
     public enum Tag {
         FESTIVAL,
