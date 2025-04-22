@@ -3,8 +3,13 @@ package com.example.demo.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.*;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 @JsonInclude(Include.NON_NULL)
 @Entity
@@ -14,25 +19,46 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id")
     private Long id;
+
+    @NotNull
+    @Size(min = 10, max = 50)
     @Column(name ="event_name")
     private String name;
+
+    @Size(min = 20, max = 250)
     @Column(name ="event_description")
     private String description;
+
+    @NotNull
+    @Size(min = 10, max = 200)
     @Column(name ="event_address")
     private String address;
+
+    @NotNull
+    @Size(min = 2, max = 50)
     @Column(name ="event_city")
     private String city;
+
+    @NotNull
+    @Size(min = 2, max = 20)
     @Column(name ="event_type")
+
     private String type;
+    @NotNull
     @Column(name ="event_date")
     private String date;
+
+    @NotNull
+    @Size(min = 4, max = 8)
     @Column(name ="event_start_time")
     private String startTime;
+
+    @NotNull
+    @Size(min = 4, max = 8)
     @Column(name ="event_end_time")
     private String endTime;
 
-/*    private List<TimeBlock> timeBlocks;
-    private List<Guest> guests;*/
+    List<Guest> guests;
 
     public Event() {
     }
@@ -87,13 +113,6 @@ public class Event {
         this.type = type;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
 
     public String getStartTime() {
         return startTime;
@@ -110,15 +129,13 @@ public class Event {
     public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
-
-    /*public List<TimeBlock> getTimeBlocks() {
-        return timeBlocks;
+    public String getDate() {
+        return date;
     }
 
-    public void setTimeBlocks(List<TimeBlock> timeBlocks) {
-        this.timeBlocks = timeBlocks;
+    public void setDate(String date) {
+        this.date = date;
     }
-
 
     public List<Guest> getGuests() {
         return guests;
@@ -126,7 +143,7 @@ public class Event {
 
     public void setGuests(List<Guest> guests) {
         this.guests = guests;
-    }*/
+    }
 
     public enum Tag {
         FESTIVAL,

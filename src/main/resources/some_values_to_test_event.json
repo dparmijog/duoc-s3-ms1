@@ -1,0 +1,125 @@
+[
+    {
+        "name": "Sample Event",
+        "description": "This is a sample event.",
+        "address": "123 Sample St",
+        "city": "Sample City",
+        "type": "Conference",
+        "date": "2023-10-01",
+        "startTime": "09:00",
+        "endTime": "17:00"
+    },
+    {
+        "name": "Annual Meeting",
+        "description": "Annual meeting of the board.",
+        "address": "456 Board St",
+        "city": "Board City",
+        "type": "Meeting",
+        "date": "2023-11-15",
+        "startTime": "10:00",
+        "endTime": "12:00"
+    },
+    {
+        "name": "Tech Conference",
+        "description": "A conference for tech enthusiasts.",
+        "address": "789 Tech Ave",
+        "city": "Tech City",
+        "type": "Conference",
+        "date": "2023-12-05",
+        "startTime": "08:00",
+        "endTime": "18:00"
+    },
+    {
+        "name": "Art Exhibition",
+        "description": "An exhibition showcasing local artists.",
+        "address": "101 Art St",
+        "city": "Art City",
+        "type": "Exhibition",
+        "date": "2023-09-20",
+        "startTime": "11:00",
+        "endTime": "17:00"
+    },
+    {
+        "name": "Music Festival",
+        "description": "A festival celebrating music and arts.",
+        "address": "202 Music Rd",
+        "city": "Music City",
+        "type": "Festival",
+        "date": "2023-10-10",
+        "startTime": "12:00",
+        "endTime": "23:00"
+    },
+    {
+        "name": "Food Fair",
+        "description": "A fair showcasing local food vendors.",
+        "address": "303 Food Blvd",
+        "city": "Food City",
+        "type": "Fair",
+        "date": "2023-10-25",
+        "startTime": "10:00",
+        "endTime": "20:00"
+    },
+
+
+
+    {
+        "name": "Sports Day",
+        "description": "A day of sports and activities.",
+        "address": "303 Sports St",
+        "city": "Sports City",
+        "type": "Sports",
+        "date": "2023-10-30",
+        "startTime": "09:00",
+        "endTime": "17:00"
+    },
+    {
+        "name": "Charity Gala",
+        "description": "A gala event for charity.",
+        "address": "404 Gala St",
+        "city": "Gala City",
+        "type": "Gala",
+        "date": "2023-11-05",
+        "startTime": "18:00",
+        "endTime": "23:00"
+    },
+    {
+        "name": "Charity Run",
+        "description": "A charity run for local charities.",
+        "address": "404 Charity Ln",
+        "city": "Charity City",
+        "type": "Run",
+        "date": "2023-11-01",
+        "startTime": "07:00",
+        "endTime": "10:00"
+    },
+    {
+        "name": "Book Fair",
+        "description": "A fair for book lovers.",
+        "address": "505 Book St",
+        "city": "Book City",
+        "type": "Fair",
+        "date": "2023-11-20",
+        "startTime": "09:00",
+        "endTime": "18:00"
+    },
+    {
+        "name": "Film Festival",
+        "description": "A festival showcasing independent films.",
+        "address": "606 Film Ave",
+        "city": "Film City",
+        "type": "Festival",
+        "date": "2023-12-15",
+        "startTime": "10:00",
+        "endTime": "22:00"
+    },
+    {
+        "name": "Health Fair",
+        "description": "A fair promoting health and wellness.",
+        "address": "707 Health St",
+        "city": "Health City",
+        "type": "Fair",
+        "date": "2023-12-01",
+        "startTime": "09:00",
+        "endTime": "17:00"
+    }
+]

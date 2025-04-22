@@ -2,41 +2,56 @@ package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Entity
+@Table(name = "guest")
 public class Guest {
-    private String id;
-    @JsonIgnore
-    private String eventId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="id")
+    private Long id;
+
+    //@JsonIgnore
+    @NotNull
+    @Column(name ="event_id")
+    private Long eventId;
+
+    @NotNull
+    @Size(min = 2, max = 50)
+    @Column(name ="guest_name")
     private String name;
+
+    @Size(min = 20, max = 250)
+    @Column(name ="guest_description")
     private String description;
+
+    @Size(min = 2, max = 50)
+    @Column(name ="guest_location")
     private String location;
 
     public Guest() {
     }
 
-    public Guest(String id, String eventId, String name, String location) {
-        this.id = id;
-        this.eventId = eventId;
-        this.name = name;
-        this.description = description;
-        this.location = location;
-    }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getEventId() {
+    public Long getEventId() {
         return eventId;
     }
 
-    public void setEventId(String eventId) {
+    public void setEventId(Long eventId) {
         this.eventId = eventId;
     }
 

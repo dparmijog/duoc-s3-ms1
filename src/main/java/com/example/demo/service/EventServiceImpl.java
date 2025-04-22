@@ -13,6 +13,8 @@ public class EventServiceImpl implements EventService {
     @Autowired
     private EventRepository eventRepository;
 
+    @Autowired
+    private GuestService guestService;
 
     @Override
     public Optional<Event> findEventById(Long id) {

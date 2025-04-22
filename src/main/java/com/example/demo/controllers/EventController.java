@@ -20,20 +20,11 @@ public class EventController {
     public List<Event> getAllEvents() {
 
         return eventService.findAllEvents();
-        /*.stream().peek(e -> {
-            e.setGuests(List.of());
-            e.setTimeBlocks(List.of());
-        }).toList();*/
     }
 
     @GetMapping("/{id}")
     public Optional<Event> getEventById(@PathVariable Long id) {
         return eventService.findEventById(id);
-        /*.map(e -> {
-            e.setGuests(GuestRepository.getAllByEventId(e.getId()));
-            e.setTimeBlocks(TimeBlockRepository.getAllByEventId(e.getId()));
-            return e;
-        });*/
     }
 
     @PostMapping
