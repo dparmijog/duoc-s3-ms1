@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.model.Event;
 import com.example.demo.model.Guest;
 import com.example.demo.repository.GuestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ public class GuestServiceImpl implements GuestService {
     @Autowired
     private GuestRepository guestRepository;
 
+    @Autowired
+    private EventService eventService;
+
 
     @Override
     public Optional<Guest> findById(Long id) {
@@ -23,20 +27,26 @@ public class GuestServiceImpl implements GuestService {
 
     @Override
     public Guest createGuest(Guest guest) {
+        Optional<Event> event = eventService.findEventById(guest.getEventId());
+        if (!event.isPresent()) {
+            throw new IllegalArgumentException("Evento no encontrado");
+
+        }
         return guestRepository.save(guest);
     }
 
     @Override
     public Guest updateGuest(String id, Guest guest) {
         Optional<Guest> existingGuest = guestRepository.findById(Long.valueOf(id));
-        if (existingGuest.isPresent()) {
-            Guest updatedGuest = existingGuest.get();
-            updatedGuest.setName(guest.getName());
-            updatedGuest.setDescription(guest.getDescription());
-            updatedGuest.setLocation(guest.getLocation());
-            return guestRepository.save(updatedGuest);
+        Optional<Event> event = eventService.findEventById(guest.getEventId());
+        if(!existingGuest.isPresent()) {
+            throw new IllegalArgumentException("Invitado no encontrado");
         }
-        throw new IllegalArgumentException("Guest with ID " + id + " not found");
+        if (!event.isPresent()) {
+            throw new IllegalArgumentException("Evento no encontrado");
+        }
+        guest.setId(existingGuest.get().getId());
+        return guestRepository.save(guest);
     }
 
     @Override

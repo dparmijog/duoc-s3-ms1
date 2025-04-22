@@ -6,8 +6,10 @@ import jakarta.annotation.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/guests")
@@ -18,10 +20,14 @@ public class GuestController {
 
     @GetMapping
     public List<Guest> getAllGuests(@RequestParam(required = false) @Nullable Long eventId) {
+
+        List<Guest> guests = guestRepository.findAll();
         if (eventId != null) {
-            return guestRepository.findByEventId(eventId);
+            return guests.stream()
+                    .filter(e -> e.getEventId().equals(eventId))
+                    .toList();
         }
-        return guestRepository.findAll();
+        return guests;
     }
 
     @PostMapping

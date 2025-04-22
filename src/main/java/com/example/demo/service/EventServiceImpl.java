@@ -10,11 +10,14 @@ import java.util.Optional;
 
 @Service
 public class EventServiceImpl implements EventService {
+
     @Autowired
     private EventRepository eventRepository;
 
-    @Autowired
-    private GuestService guestService;
+    public EventServiceImpl(EventRepository eventRepository) {
+        this.eventRepository = eventRepository;
+
+    }
 
     @Override
     public Optional<Event> findEventById(Long id) {

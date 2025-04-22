@@ -58,12 +58,9 @@ public class Event {
     @Column(name ="event_end_time")
     private String endTime;
 
-    List<Guest> guests;
 
     public Event() {
     }
-
-
 
     public Long getId() {
         return id;
@@ -137,28 +134,4 @@ public class Event {
         this.date = date;
     }
 
-    public List<Guest> getGuests() {
-        return guests;
-    }
-
-    public void setGuests(List<Guest> guests) {
-        this.guests = guests;
-    }
-
-    public enum Tag {
-        FESTIVAL,
-        EXHIBITION,
-        WORKSHOP,
-        COMPETITION,
-        SHOW,
-        CELEBRATION,
-        FUNDRAISER;
-
-        private static Tag fromString(String name) {
-            return Arrays.stream(Tag.values())
-                    .filter(tag -> tag.name().equalsIgnoreCase(name))
-                    .findFirst()
-                    .orElseThrow();
-        }
-    }
 }
